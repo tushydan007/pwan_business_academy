@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -12,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import loginImg from "@/public/assets/login.jpg";
 import logo from "@/public/assets/pbaLogo.png";
+import { Eye, EyeOff } from "lucide-react";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -23,6 +24,8 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -38,7 +41,6 @@ const LoginForm = () => {
 
   return (
     <div className="flex h-screen items-center justify-center bg-gray-100">
-      {/* Left: Image */}
       <div className="relative hidden md:block flex-1 w-full h-full">
         <Image
           src={loginImg}
@@ -50,11 +52,9 @@ const LoginForm = () => {
         />
       </div>
 
-      {/* Right: Form */}
       <div className="flex-1 h-screen w-full flex flex-col items-center justify-center text-white">
         <div className="p-4 md:p-6 flex items-center justify-center h-full w-full bg-blue-100">
           <Card className="flex flex-col flex-1 border-none rounded-none shadow-none p-6 md:p-12 bg-transparent">
-            {/* Centered Logo and Header */}
             <div className="flex flex-col items-center justify-center space-y-4 mb-6">
               <figure>
                 <Image src={logo} alt="logo" width={150} height={100} />
@@ -67,7 +67,6 @@ const LoginForm = () => {
               </CardHeader>
             </div>
 
-            {/* Form */}
             <CardContent className="flex-1 flex items-center justify-center">
               <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -90,14 +89,22 @@ const LoginForm = () => {
                 </div>
 
                 {/* Password */}
-                <div>
+                <div className="relative">
                   <Label htmlFor="password">Password</Label>
                   <Input
                     id="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     {...register("password")}
-                    className="shadow-sm border border-gray-300"
+                    className="shadow-sm border border-gray-300 pr-10"
                   />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-2 top-[35px] text-gray-500 hover:text-gray-700"
+                    tabIndex={-1}
+                  >
+                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  </button>
                   {errors.password && (
                     <p className="text-sm text-red-600 mt-1">
                       {errors.password.message}
