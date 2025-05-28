@@ -203,7 +203,7 @@ const Navbar = () => {
                     <Button asChild variant={"outline"}>
                       <Link
                         href="/login"
-                        className="transition duration-300 font-semibold text-gray-900 border border-gray-900"
+                        className="transition duration-300 font-semibold text-gray-800 border border-gray-950"
                       >
                         Login
                       </Link>
