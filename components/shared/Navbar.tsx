@@ -199,6 +199,32 @@ const Navbar = () => {
                       </ul>
                     </div>
                   ))}
+                  <div className="flex justify-between">
+                    <Button
+                      asChild
+                      className="hover:bg-blue-500 bg-black hover:text-white hover:border-none text-white border border-gray-800"
+                      variant="outline"
+                    >
+                      <Link
+                        href="/login"
+                        className={`transition duration-300 font-semibold ${
+                          scrolled ? "text-gray-800" : "text-white"
+                        }`}
+                      >
+                        Login
+                      </Link>
+                    </Button>
+                    <Button asChild className="bg-red-700 hover:bg-red-800">
+                      <Link
+                        href="/sign-up"
+                        className={`transition duration-300 font-semibold ${
+                          scrolled ? "text-white" : "text-white"
+                        }`}
+                      >
+                        Register
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
