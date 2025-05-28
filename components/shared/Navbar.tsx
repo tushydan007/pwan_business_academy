@@ -200,16 +200,10 @@ const Navbar = () => {
                     </div>
                   ))}
                   <div className="flex justify-between">
-                    <Button
-                      asChild
-                      className="hover:bg-blue-500 bg-black hover:text-white hover:border-none text-white border border-gray-800"
-                      variant="outline"
-                    >
+                    <Button asChild variant={"outline"}>
                       <Link
                         href="/login"
-                        className={`transition duration-300 font-semibold ${
-                          scrolled ? "text-gray-800" : "text-white"
-                        }`}
+                        className="transition duration-300 font-semibold text-gray-900 border border-gray-900"
                       >
                         Login
                       </Link>
