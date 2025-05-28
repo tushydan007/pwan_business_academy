@@ -80,7 +80,7 @@ const LoginForm = () => {
                     id="email"
                     type="email"
                     {...register("email")}
-                    className="shadow-md"
+                    className="shadow-sm border border-gray-300"
                   />
                   {errors.email && (
                     <p className="text-sm text-red-600 mt-1">
@@ -96,7 +96,7 @@ const LoginForm = () => {
                     id="password"
                     type="password"
                     {...register("password")}
-                    className="shadow-md"
+                    className="shadow-sm border border-gray-300"
                   />
                   {errors.password && (
                     <p className="text-sm text-red-600 mt-1">
