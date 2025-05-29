@@ -60,7 +60,7 @@ const SignUpForm = () => {
       {/* Right: Form */}
       <div className="flex-1 bg-blue-100 shadow-lg h-screen flex flex-col text-white">
         <Card className="flex flex-col flex-1 border-none rounded-none shadow-none p-6 md:p-12 bg-transparent">
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-0">
             <Image src={logo} alt="logo" width={150} height={100} />
           </div>
           <CardHeader className="text-left">
@@ -75,7 +75,7 @@ const SignUpForm = () => {
           <CardContent className="flex-1 flex items-center justify-center">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="w-full max-w-md space-y-2 md:space-y-4"
+              className="w-full max-w-md space-y-2"
             >
               {/* Full Name */}
               <div>
