@@ -63,8 +63,8 @@ const SignUpForm = () => {
           <div className="flex justify-center mb-0">
             <Image src={logo} alt="logo" width={150} height={100} />
           </div>
-          <CardHeader className="text-left">
-            <CardTitle className="text-2xl font-bold grid place-content-center">
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold text-center">
               Create Your Account
             </CardTitle>
             <p className="text-muted-foreground text-sm mt-1 text-center">
