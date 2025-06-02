@@ -58,8 +58,8 @@ const SignUpForm = () => {
       </div>
 
       {/* Right: Form */}
-      <div className="flex-1 bg-blue-100 shadow-lg h-screen flex flex-col text-white">
-        <Card className="flex flex-col flex-1 border-none rounded-none shadow-none p-6 md:p-12 bg-transparent">
+      <div className="flex-1 bg-blue-100 shadow-lg h-screen flex flex-col text-white overflow-y-auto">
+        <Card className="flex flex-col border-none rounded-none shadow-none p-6 md:p-12 bg-transparent flex-grow">
           <div className="flex justify-center mb-0">
             <Image src={logo} alt="logo" width={150} height={100} />
           </div>

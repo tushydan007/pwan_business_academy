@@ -29,7 +29,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Hero Content */}
-      <div className="absolute inset-0 flex items-center justify-start px-6 lg:px-12 z-10">
+      <div className="absolute inset-0 flex items-center justify-start px-6 lg:px-12 z-10 mt-4">
         <motion.div
           initial="hidden"
           animate="visible"
