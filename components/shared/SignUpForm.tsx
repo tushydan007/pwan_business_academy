@@ -21,6 +21,15 @@ const signupSchema = z
       .string()
       .min(6, { message: "Password must be at least 6 characters" }),
     confirmPassword: z.string(),
+    gender: z.enum(["Male", "Female", "Other"]),
+    interests: z
+      .array(z.string())
+      .min(1, { message: "Select at least one interest" }),
+    country: z.string().min(1, { message: "Please select your country" }),
+    accountType: z.enum(["Individual", "Business"]),
+    description: z
+      .string()
+      .min(10, { message: "Description should be at least 10 characters" }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
@@ -40,11 +49,10 @@ const SignUpForm = () => {
 
   const onSubmit = (data: SignUpFormValues) => {
     console.log(data);
-    // Handle sign-up logic
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-100 overflow-y-hidden">
+    <div className="flex h-screen items-center justify-center bg-gray-100 overflow-hidden">
       {/* Left: Image */}
       <div className="relative hidden md:block flex-1 w-full h-full">
         <Image
@@ -58,7 +66,7 @@ const SignUpForm = () => {
       </div>
 
       {/* Right: Form */}
-      <div className="flex-1 bg-blue-100 shadow-lg h-screen flex flex-col text-white overflow-y-auto">
+      <div className="flex-1 bg-blue-100 shadow-lg h-screen flex flex-col text-white overflow-y-auto scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-blue-200 px-4">
         <Card className="flex flex-col border-none rounded-none shadow-none p-6 md:p-12 bg-transparent flex-grow">
           <div className="flex justify-center mb-0">
             <Image src={logo} alt="logo" width={150} height={100} />
@@ -75,7 +83,7 @@ const SignUpForm = () => {
           <CardContent className="flex-1 flex items-center justify-center">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="w-full max-w-md space-y-2"
+              className="w-full max-w-md space-y-3"
             >
               {/* Full Name */}
               <div>
@@ -136,6 +144,124 @@ const SignUpForm = () => {
                 {errors.confirmPassword && (
                   <p className="text-sm text-red-600 mt-1">
                     {errors.confirmPassword.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Gender (Radio) */}
+              <div>
+                <Label>Gender</Label>
+                <div className="flex gap-4 mt-1">
+                  <label className="flex items-center gap-1">
+                    <input type="radio" value="Male" {...register("gender")} />
+                    Male
+                  </label>
+                  <label className="flex items-center gap-1">
+                    <input
+                      type="radio"
+                      value="Female"
+                      {...register("gender")}
+                    />
+                    Female
+                  </label>
+                  <label className="flex items-center gap-1">
+                    <input type="radio" value="Other" {...register("gender")} />
+                    Other
+                  </label>
+                </div>
+                {errors.gender && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.gender.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Interests (Checkboxes) */}
+              <div>
+                <Label>Interests</Label>
+                <div className="flex flex-col gap-1 mt-1">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      value="Real Estate"
+                      {...register("interests")}
+                    />
+                    Real Estate
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      value="Investment"
+                      {...register("interests")}
+                    />
+                    Investment
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      value="Property Management"
+                      {...register("interests")}
+                    />
+                    Property Management
+                  </label>
+                </div>
+                {errors.interests && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.interests.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Country (Select) */}
+              <div>
+                <Label htmlFor="country">Country</Label>
+                <select
+                  id="country"
+                  {...register("country")}
+                  className="shadow-sm border border-gray-300 w-full mt-1 text-black"
+                >
+                  <option value="">Select Country</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Canada">Canada</option>
+                  <option value="UK">United Kingdom</option>
+                </select>
+                {errors.country && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.country.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Account Type (Select) */}
+              <div>
+                <Label htmlFor="accountType">Account Type</Label>
+                <select
+                  id="accountType"
+                  {...register("accountType")}
+                  className="shadow-sm border border-gray-300 w-full mt-1 text-black"
+                >
+                  <option value="">Select Type</option>
+                  <option value="Individual">Individual</option>
+                  <option value="Business">Business</option>
+                </select>
+                {errors.accountType && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.accountType.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Description */}
+              <div>
+                <Label htmlFor="description">Tell us about yourself</Label>
+                <textarea
+                  id="description"
+                  {...register("description")}
+                  className="shadow-sm border border-gray-300 w-full h-24 text-black p-2"
+                />
+                {errors.description && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.description.message}
                   </p>
                 )}
               </div>
