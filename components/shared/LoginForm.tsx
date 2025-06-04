@@ -53,7 +53,7 @@ const LoginForm = () => {
       </div>
 
       <div className="flex-1 h-screen w-full flex flex-col items-center justify-center text-white">
-        <div className="p-4 md:p-6 flex items-center justify-center h-full w-full bg-blue-100">
+        <div className="p-4 md:p-6 flex items-center justify-center h-full w-full">
           <Card className="flex flex-col flex-1 border-none rounded-none shadow-none p-6 md:p-12 bg-transparent">
             <div className="flex flex-col items-center justify-center space-y-4 mb-6">
               <figure>
@@ -79,7 +79,7 @@ const LoginForm = () => {
                     id="email"
                     type="email"
                     {...register("email")}
-                    className="shadow-sm border border-gray-300"
+                    className="border border-gray-300 shadow-md"
                   />
                   {errors.email && (
                     <p className="text-sm text-red-600 mt-1">
@@ -95,7 +95,7 @@ const LoginForm = () => {
                     id="password"
                     type={showPassword ? "text" : "password"}
                     {...register("password")}
-                    className="shadow-sm border border-gray-300 pr-10"
+                    className="border border-gray-300 shadow-md"
                   />
                   <button
                     type="button"

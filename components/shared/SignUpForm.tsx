@@ -106,7 +106,7 @@ const SignUpForm = () => {
       </div>
 
       {/* Right: Form */}
-      <div className="h-full overflow-y-auto relative bg-blue-100 shadow-lg flex flex-col text-black scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-blue-200 px-4 md:w-1/2 w-full">
+      <div className="h-full overflow-y-auto relative shadow-lg flex flex-col text-black scrollbar-thin scrollbar-thumb-blue-600 scrollbar-track-blue-200 px-4 md:w-1/2 w-full">
         <Card className="flex flex-col border-none rounded-none shadow-none p-6 md:p-12 bg-transparent flex-grow">
           <div className="flex justify-center mb-0">
             <Image src={logo} alt="logo" width={150} height={100} />
@@ -362,7 +362,7 @@ const SignUpForm = () => {
               </Button>
 
               <div className="flex items-center justify-between text-sm mt-4">
-                <span className="text-gray-700">Already have an account?</span>
+                <span className="text-blue-600">Already have an account?</span>
                 <Link
                   href="/login"
                   className="text-blue-600 hover:underline font-semibold"
