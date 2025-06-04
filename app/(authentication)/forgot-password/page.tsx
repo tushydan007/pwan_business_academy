@@ -48,8 +48,8 @@ export default function ForgotPasswordForm() {
         const error = await res.json();
         toast.error(error.message || "Something went wrong");
       }
-    } catch (err) {
-      toast.error("Network error");
+    } catch (err:any) {
+      toast.error("Network error", err);
     }
   };
 
