@@ -14,15 +14,15 @@ import signupImg from "@/public/assets/loginImg.jpg";
 import logo from "@/public/assets/pbaLogo.png";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import axios from "axios";
+// import axios from "axios";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectItem,
-  SelectValue,
-} from "@/components/ui/select";
+// import {
+//   Select,
+//   SelectTrigger,
+//   SelectContent,
+//   SelectItem,
+//   SelectValue,
+// } from "@/components/ui/select";
 import toast from "react-hot-toast";
 
 const signupSchema = z
@@ -55,8 +55,6 @@ const SignUpForm = () => {
     register,
     handleSubmit,
     control,
-    getValues,
-    setValue,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<SignUpFormValues>({
