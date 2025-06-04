@@ -81,8 +81,13 @@ const SignUpForm = () => {
 
       toast.success("Account created successfully!");
       reset(); // Reset form fields
-    } catch (error: any) {
-      toast.error(error.message || "An unexpected error occurred");
+    } catch (error: unknown) {
+      // toast.error(error.message || "An unexpected error occurred");
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 
