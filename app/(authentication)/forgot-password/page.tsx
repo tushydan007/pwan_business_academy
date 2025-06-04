@@ -48,8 +48,13 @@ export default function ForgotPasswordForm() {
         const error = await res.json();
         toast.error(error.message || "Something went wrong");
       }
-    } catch (err:any) {
-      toast.error("Network error", err);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        toast.error(err.message);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
+      //   toast.error("Network error", err);
     }
   };
 
@@ -88,7 +93,12 @@ export default function ForgotPasswordForm() {
           </Form>
         </div>
       </div>
-      <Link href="/" className="block text-center mt-5 font-semibold hover:underline text-blue-600">Go back Home</Link>
+      <Link
+        href="/"
+        className="block text-center mt-5 font-semibold hover:underline text-blue-600"
+      >
+        Go back Home
+      </Link>
     </>
   );
 }
