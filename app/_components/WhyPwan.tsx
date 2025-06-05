@@ -11,7 +11,7 @@ const WhyPwan = () => {
         development, offering cutting-edge programs that blend world-class
         expertise with real-world business challenges. Our immersive learning
         approach empowers leaders with strategic thinking, innovation, and
-        leadership skills tailored to today's dynamic global marketplace
+        leadership skills tailored to today&apos;s dynamic global marketplace
       </p>
     </section>
   );
