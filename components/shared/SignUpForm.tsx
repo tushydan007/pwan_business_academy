@@ -27,7 +27,10 @@ import toast from "react-hot-toast";
 
 const signupSchema = z
   .object({
-    fullName: z.string().min(2, { message: "Full name is required" }),
+    firstName: z.string().min(2, { message: "First name is required" }),
+    lastName: z.string().min(2, { message: "Last name is required" }),
+    userName: z.string().min(2, { message: "Username is required" }),
+    phone: z.string().min(11, { message: "Phone number is required" }),
     email: z.string().email({ message: "Invalid email address" }),
     password: z
       .string()
@@ -80,7 +83,7 @@ const SignUpForm = () => {
       }
 
       toast.success("Account created successfully!");
-      reset(); // Reset form fields
+      reset();
     } catch (error: unknown) {
       // toast.error(error.message || "An unexpected error occurred");
       if (error instanceof Error) {
@@ -125,17 +128,32 @@ const SignUpForm = () => {
               onSubmit={handleSubmit(onSubmit)}
               className="w-full max-w-md space-y-7"
             >
-              {/* Full Name */}
+              {/* First Name */}
               <div>
-                <Label htmlFor="fullName">Full Name</Label>
+                <Label htmlFor="firstName">First Name</Label>
                 <Input
-                  id="fullName"
-                  {...register("fullName")}
+                  id="firstName"
+                  {...register("firstName")}
                   className="border border-gray-300 shadow-md"
                 />
-                {errors.fullName && (
+                {errors.firstName && (
                   <p className="text-sm text-red-600 mt-1">
-                    {errors.fullName.message}
+                    {errors.firstName.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Last Name */}
+              <div>
+                <Label htmlFor="lastName">Last Name</Label>
+                <Input
+                  id="lastName"
+                  {...register("lastName")}
+                  className="border border-gray-300 shadow-md"
+                />
+                {errors.lastName && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.lastName.message}
                   </p>
                 )}
               </div>
@@ -152,6 +170,22 @@ const SignUpForm = () => {
                 {errors.email && (
                   <p className="text-sm text-red-600 mt-1">
                     {errors.email.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Username */}
+              <div>
+                <Label htmlFor="username">Username</Label>
+                <Input
+                  id="username"
+                  type="text"
+                  {...register("userName")}
+                  className="border border-gray-300 shadow-md"
+                />
+                {errors.userName && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.userName.message}
                   </p>
                 )}
               </div>
@@ -184,6 +218,22 @@ const SignUpForm = () => {
                 {errors.confirmPassword && (
                   <p className="text-sm text-red-600 mt-1">
                     {errors.confirmPassword.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Phone Number */}
+              <div>
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input
+                  id="phone"
+                  type="text"
+                  {...register("phone")}
+                  className="border border-gray-300 shadow-md"
+                />
+                {errors.phone && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.phone.message}
                   </p>
                 )}
               </div>
