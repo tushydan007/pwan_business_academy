@@ -18,9 +18,6 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "PWAN Business Academy",
   description: "PWAN Business Academy is a platform where leaders are raised",
-  // icons: {
-  //   icon: "../public/assets/thumbnail.png",
-  // },
 };
 
 export default function RootLayout({

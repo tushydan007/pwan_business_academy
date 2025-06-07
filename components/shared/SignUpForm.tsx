@@ -1,6 +1,29 @@
 "use client";
 
 import React from "react";
+import { useEffect, useState } from "react";
+import { Country, State, City, ICity } from "country-state-city";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { Check, ChevronsUpDown } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -14,16 +37,9 @@ import signupImg from "@/public/assets/loginImg.jpg";
 import logo from "@/public/assets/pbaLogo.png";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-// import axios from "axios";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-// import {
-//   Select,
-//   SelectTrigger,
-//   SelectContent,
-//   SelectItem,
-//   SelectValue,
-// } from "@/components/ui/select";
 import toast from "react-hot-toast";
+import SpinnerIcon from "@/components/shared/SpinnerIcon";
 
 const signupSchema = z
   .object({
@@ -37,10 +53,12 @@ const signupSchema = z
       .min(6, { message: "Password must be at least 6 characters" }),
     confirmPassword: z.string(),
     gender: z.enum(["Male", "Female", "Other"]),
+    country: z.string().min(1, "Country is required"),
+    state: z.string().min(1, "State is required"),
+    city: z.string().min(1, "City is required"),
     interests: z
       .array(z.string())
       .min(1, { message: "Select at least one interest" }),
-    country: z.string().min(1, { message: "Please select your country" }),
     accountType: z.enum(["Individual", "Business"]),
     description: z
       .string()
@@ -51,14 +69,25 @@ const signupSchema = z
     path: ["confirmPassword"],
   });
 
+type Location = {
+  isoCode: string;
+  name: string;
+};
+
 type SignUpFormValues = z.infer<typeof signupSchema>;
 
 const SignUpForm = () => {
+  const [countries, setCountries] = useState<Location[]>([]);
+  const [states, setStates] = useState<Location[]>([]);
+  const [cities, setCities] = useState<ICity[]>([]);
+  const [open, setOpen] = useState(false);
   const {
     register,
     handleSubmit,
     control,
     reset,
+    setValue,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<SignUpFormValues>({
     resolver: zodResolver(signupSchema),
@@ -67,7 +96,51 @@ const SignUpForm = () => {
     },
   });
 
+  const selectedCountry = watch("country");
+  const selectedState = watch("state");
+
+  useEffect(() => {
+    setCountries(Country.getAllCountries());
+  }, []);
+
+  {
+    /* Load states when country changes */
+  }
+  useEffect(() => {
+    if (selectedCountry) {
+      const statesData = State.getStatesOfCountry(selectedCountry);
+      setStates(statesData);
+      setCities([]);
+      setValue("state", "");
+      setValue("city", "");
+    }
+  }, [selectedCountry, setValue]);
+
+  {
+    /* Load Cities when State changes */
+  }
+  useEffect(() => {
+    if (selectedCountry && selectedState) {
+      const citiesData = City.getCitiesOfState(selectedCountry, selectedState);
+      setCities(citiesData);
+      setValue("city", "");
+    }
+  }, [selectedCountry, selectedState, setValue]);
+
+  const selectedCountryData = countries.find(
+    (c) => c.isoCode === selectedCountry
+  );
+
+  const getFlagUrl = (isoCode: string) =>
+    `https://flagcdn.com/w40/${isoCode.toLowerCase()}.png`;
+
+  {
+    /* Submit Handler */
+  }
+
   const onSubmit = async (data: SignUpFormValues) => {
+    const toastId = toast.loading("Creating your account...");
+
     try {
       const response = await fetch("/api/signup", {
         method: "POST",
@@ -78,20 +151,21 @@ const SignUpForm = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to create account");
+        const errorData = await response.json().catch(() => null);
+        const errorMessage =
+          errorData?.message || `Signup failed with status ${response.status}`;
+        throw new Error(errorMessage);
       }
 
-      toast.success("Account created successfully!");
-      reset();
-    } catch (error: unknown) {
-      // toast.error(error.message || "An unexpected error occurred");
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error("An unexpected error occurred");
-      }
+      toast.success("Account created successfully!", { id: toastId });
+      reset(); // reset is from useForm()
+      // Optionally redirect or do something else here
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "An unexpected error occurred";
+      toast.error(errorMessage, { id: toastId });
     }
+    console.log(data);
   };
 
   return (
@@ -273,37 +347,178 @@ const SignUpForm = () => {
                 )}
               </div>
 
-              {/* Interests */}
+              {/* Country Autocomplete Select */}
+              <div>
+                <Popover open={open} onOpenChange={setOpen}>
+                  <PopoverTrigger asChild>
+                    <button
+                      role="combobox"
+                      aria-expanded={open}
+                      className={cn(
+                        "w-full justify-between flex items-center border px-3 py-2 rounded-md bg-white",
+                        errors.country && "border-red-500"
+                      )}
+                    >
+                      {selectedCountryData ? (
+                        <span className="flex items-center gap-2">
+                          <Image
+                            src={getFlagUrl(selectedCountryData.isoCode)}
+                            alt={selectedCountryData.name}
+                            width={24}
+                            height={16}
+                            unoptimized
+                            className="h-5 w-6 rounded-sm object-cover"
+                          />
+                          {selectedCountryData.name}
+                        </span>
+                      ) : (
+                        <span className="text-muted-foreground">
+                          Select Country
+                        </span>
+                      )}
+                      <ChevronsUpDown className="ml-auto h-4 w-4 opacity-50" />
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-full p-0">
+                    <Command>
+                      <CommandInput placeholder="Search country..." />
+                      <CommandEmpty>No country found.</CommandEmpty>
+                      <CommandGroup>
+                        {countries.map((country) => (
+                          <CommandItem
+                            key={country.isoCode}
+                            value={country.name}
+                            onSelect={() => {
+                              setValue("country", country.isoCode, {
+                                shouldValidate: true,
+                              });
+                              setOpen(false);
+                            }}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                selectedCountry === country.isoCode
+                                  ? "opacity-100"
+                                  : "opacity-0"
+                              )}
+                            />
+                            <Image
+                              src={getFlagUrl(country.isoCode)}
+                              alt={country.name}
+                              width={20}
+                              height={14}
+                              unoptimized
+                              className="h-4 w-5 rounded-sm mr-2 object-cover"
+                            />
+                            {country.name}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+                {errors.country && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.country.message}
+                  </p>
+                )}
+              </div>
+
+              {/* State Select */}
+              <div>
+                <Select
+                  onValueChange={(val) =>
+                    setValue("state", val, { shouldValidate: true })
+                  }
+                  value={watch("state")}
+                >
+                  <SelectTrigger
+                    className={cn(
+                      "border border-gray-300 shadow-md",
+                      errors.state && "border-red-500"
+                    )}
+                  >
+                    <SelectValue placeholder="Select state" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {states.map((state) => (
+                      <SelectItem key={state.isoCode} value={state.isoCode}>
+                        {state.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {errors.state && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.state.message}
+                  </p>
+                )}
+              </div>
+              {/* City Select */}
+              <div>
+                <Select
+                  onValueChange={(val) =>
+                    setValue("city", val, { shouldValidate: true })
+                  }
+                  value={watch("city")}
+                >
+                  <SelectTrigger
+                    className={cn(
+                      "border border-gray-300 shadow-md",
+                      errors.city && "border-red-500"
+                    )}
+                  >
+                    <SelectValue placeholder="Select city" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {cities.map((city) => (
+                      <SelectItem key={city.name} value={city.name}>
+                        {city.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {errors.city && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.city.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Interests - Checkboxes */}
               <div>
                 <Label>Interests</Label>
-                <Controller
-                  control={control}
-                  name="interests"
-                  render={({ field }) => (
-                    <div className="flex flex-col gap-1 mt-1">
-                      {["Real Estate", "Investment", "Property Management"].map(
-                        (interest) => (
-                          <label
-                            key={interest}
-                            className="flex items-center gap-2"
-                          >
-                            <Checkbox
-                              checked={field.value.includes(interest)}
-                              className="border border-gray-300 shadow-md"
-                              onCheckedChange={(checked) => {
-                                const newValues = checked
-                                  ? [...field.value, interest]
-                                  : field.value.filter((i) => i !== interest);
-                                field.onChange(newValues);
-                              }}
-                            />
-                            <span>{interest}</span>
-                          </label>
-                        )
-                      )}
+                <div className="grid grid-cols-2 gap-2 mt-2">
+                  {[
+                    "Real Estate",
+                    "Investment",
+                    "Property Management",
+                    "Buying",
+                    "Selling",
+                  ].map((interest) => (
+                    <div key={interest} className="flex items-center space-x-2">
+                      <Controller
+                        control={control}
+                        name="interests"
+                        render={({ field }) => (
+                          <Checkbox
+                            checked={field.value?.includes(interest)}
+                            onCheckedChange={(checked) => {
+                              const newValues = checked
+                                ? [...field.value, interest]
+                                : field.value.filter((i) => i !== interest);
+                              field.onChange(newValues);
+                            }}
+                            id={interest}
+                            className="border border-gray-300 shadow-sm"
+                          />
+                        )}
+                      />
+                      <Label htmlFor={interest}>{interest}</Label>
                     </div>
-                  )}
-                />
+                  ))}
+                </div>
                 {errors.interests && (
                   <p className="text-sm text-red-600 mt-1">
                     {errors.interests.message}
@@ -311,48 +526,29 @@ const SignUpForm = () => {
                 )}
               </div>
 
-              {/* Country */}
-              {/* <div>
-                <Label htmlFor="country">Country</Label>
-                <Controller
-                  control={control}
-                  name="country"
-                  render={({ field }) => (
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger className="w-full" id="country">
-                        <SelectValue placeholder="Select Country" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Nigeria">Nigeria</SelectItem>
-                        <SelectItem value="Canada">Canada</SelectItem>
-                        <SelectItem value="UK">United Kingdom</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  )}
-                />
-                {errors.country && (
-                  <p className="text-sm text-red-600 mt-1">
-                    {errors.country.message}
-                  </p>
-                )}
-              </div> */}
-
               {/* Account Type */}
-              {/* <div>
-                <Label htmlFor="accountType">Account Type</Label>
+              <div>
+                <Label>Account Type</Label>
                 <Controller
                   control={control}
                   name="accountType"
                   render={({ field }) => (
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger id="accountType" className="w-full">
-                        <SelectValue placeholder="Select Type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="Individual">Individual</SelectItem>
-                        <SelectItem value="Business">Business</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <RadioGroup
+                      value={field.value}
+                      onValueChange={field.onChange}
+                      className="flex gap-4 mt-1"
+                    >
+                      {["Individual", "Business"].map((type) => (
+                        <div key={type} className="flex items-center space-x-2">
+                          <RadioGroupItem
+                            value={type}
+                            id={type}
+                            className="border border-gray-300 shadow-md"
+                          />
+                          <Label htmlFor={type}>{type}</Label>
+                        </div>
+                      ))}
+                    </RadioGroup>
                   )}
                 />
                 {errors.accountType && (
@@ -360,15 +556,16 @@ const SignUpForm = () => {
                     {errors.accountType.message}
                   </p>
                 )}
-              </div> */}
+              </div>
 
               {/* Description */}
               <div>
-                <Label htmlFor="description">Tell us about yourself</Label>
+                <Label htmlFor="description">Short Bio / Description</Label>
                 <Textarea
                   id="description"
                   {...register("description")}
-                  className="w-full h-24 text-black p-2 border border-gray-300 shadow-md"
+                  className="border border-gray-300 shadow-md"
+                  rows={3}
                 />
                 {errors.description && (
                   <p className="text-sm text-red-600 mt-1">
@@ -377,49 +574,29 @@ const SignUpForm = () => {
                 )}
               </div>
 
+              {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full hover:bg-red-600 transition-colors"
+                className="w-full mt-4"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  <div className="flex items-center justify-center">
-                    <svg
-                      className="animate-spin h-5 w-5 mr-2 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8v8H4z"
-                      ></path>
-                    </svg>
-                    Creating Account...
-                  </div>
+                  <span className="flex items-center justify-center gap-2">
+                    <SpinnerIcon />
+                    Creating...
+                  </span>
                 ) : (
-                  "Sign Up"
+                  "Create Account"
                 )}
               </Button>
 
-              <div className="flex items-center justify-between text-sm mt-4">
-                <span className="text-blue-600">Already have an account?</span>
-                <Link
-                  href="/login"
-                  className="text-blue-600 hover:underline font-semibold"
-                >
-                  Sign in
+              {/* Footer link */}
+              <p className="text-sm text-center text-gray-600 mt-4">
+                Already have an account?{" "}
+                <Link href="/login" className="text-blue-600 hover:underline">
+                  Login here
                 </Link>
-              </div>
+              </p>
             </form>
           </CardContent>
         </Card>
