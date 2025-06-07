@@ -4,7 +4,7 @@ import { Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div className="bg-red-700 h-full w-full grid grid-cols-1 md:grid-cols-4 p-5 text-white px-6 md:px-10">
+    <div className="bg-red-700 h-full w-full flex flex-col md:flex-row justify-between p-5 text-white px-6 md:px-20">
       <div className="py-5">
         <h2 className="font-bold mb-5 text-2xl">Quick Links</h2>
         <p className="cursor-pointer">Home</p>
