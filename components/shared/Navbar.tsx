@@ -134,6 +134,16 @@ const Navbar = () => {
 
           {/* Toggler & Login */}
           <div className="hidden md:flex space-x-6 text-lg">
+            <Button asChild className="bg-red-700 hover:bg-red-800">
+              <Link
+                href="/sign-up"
+                className={`transition duration-300 font-semibold ${
+                  scrolled ? "text-white" : "text-white"
+                }`}
+              >
+                Sign Up
+              </Link>
+            </Button>
             <Button
               asChild
               className="hover:bg-blue-500 bg-transparent hover:text-white hover:border-none"
@@ -146,16 +156,6 @@ const Navbar = () => {
                 }`}
               >
                 Login
-              </Link>
-            </Button>
-            <Button asChild className="bg-red-700 hover:bg-red-800">
-              <Link
-                href="/sign-up"
-                className={`transition duration-300 font-semibold ${
-                  scrolled ? "text-white" : "text-white"
-                }`}
-              >
-                Register
               </Link>
             </Button>
           </div>
