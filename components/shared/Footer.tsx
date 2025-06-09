@@ -30,8 +30,9 @@ const Footer = () => {
         <p className="cursor-pointer pb-5 flex items-center gap-x-2">
           <MapPin className="-mt-10" /> PWAN BUSINESS ACADEMY,
           <br />
-          KM 42 Lekki-Epe Expressway, Lagos Nigeria.
+          KM 42 Lekki-Epe Expressway,
           <br />
+          Lagos Nigeria.
         </p>
         <p className="cursor-pointer pb-5 flex items-center gap-x-2">
           <Mail /> info@pwanacademy.com
