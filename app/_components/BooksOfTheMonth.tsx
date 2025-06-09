@@ -19,28 +19,28 @@ const books: Book[] = [
     id: 1,
     title: "Deep Work",
     author: "Cal Newport",
-    price: "$14.99",
+    price: "15,000",
     image: "/assets/deepwork.png",
   },
   {
     id: 2,
     title: "Mindset",
     author: "Dr Carol S. Dweck",
-    price: "$12.50",
+    price: "12,000",
     image: "/assets/mindset.png",
   },
   {
     id: 3,
     title: "Go Pro",
     author: "Eric Worre",
-    price: "$10.00",
+    price: "17,000",
     image: "/assets/gopro.png",
   },
   {
     id: 4,
     title: "Atomic Habits",
     author: "James Clear",
-    price: "$16.00",
+    price: "20,000",
     image: "/assets/atomichabits.png",
   },
 ];
@@ -82,6 +82,7 @@ export default function BooksOfTheMonth() {
                   <h3 className="font-semibold text-sm">{book.title}</h3>
                   <p className="text-muted-foreground text-xs">{book.author}</p>
                   <span className="text-primary font-bold mt-1 block">
+                    &#8358;
                     {book.price}
                   </span>
                 </div>
