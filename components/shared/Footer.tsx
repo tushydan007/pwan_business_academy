@@ -2,9 +2,9 @@ import React from "react";
 import { MapPin } from "lucide-react";
 import { Mail } from "lucide-react";
 import Image from "next/image";
-import instagram from "@/public/assets/instagram.png"
-import facebook from "@/public/assets/facebook.png"
-import twitter from "@/public/assets/twitter.png"
+import instagram from "@/public/assets/instagram.png";
+import facebook from "@/public/assets/facebook.png";
+import twitter from "@/public/assets/twitter.png";
 import Link from "next/link";
 
 const Footer = () => {
@@ -28,10 +28,10 @@ const Footer = () => {
       <div className="py-5 flex-1">
         <h2 className="font-bold mb-5 text-2xl">Contact Us</h2>
         <p className="cursor-pointer pb-5 flex items-center gap-x-2">
-          <MapPin className="-mt-10" /> Floor 1 to 5, KM 42,Puri Mall Building,
+          <MapPin className="-mt-10" /> PWAN BUSINESS ACADEMY,
           <br />
-          Oko Ado, Leki Epe Expressway,
-          <br /> Lagos State
+          KM 42 Lekki-Epe Expressway, Lagos Nigeria.
+          <br />
         </p>
         <p className="cursor-pointer pb-5 flex items-center gap-x-2">
           <Mail /> info@pwanacademy.com
