@@ -16,7 +16,7 @@ const RightProgramme = () => {
           />
           <CustomCard
             description="An Employability and Workplace Readiness Program equips individuals with essential soft skills, professional behavior, communication abilities, and job search strategies needed to succeed in the workplace."
-            imageUrl="/assets/caip.png"
+            imageUrl="/assets/caip.jpg"
             title="Employability and Workplace Readiness Program (EWRP)"
           />
           <CustomCard
