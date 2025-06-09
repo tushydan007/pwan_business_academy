@@ -2,9 +2,11 @@
 
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 type Book = {
   id: number;
@@ -19,28 +21,28 @@ const books: Book[] = [
     id: 1,
     title: "Deep Work",
     author: "Cal Newport",
-    price: "15,000",
+    price: "5,000",
     image: "/assets/deepwork.png",
   },
   {
     id: 2,
     title: "Mindset",
     author: "Dr Carol S. Dweck",
-    price: "12,000",
+    price: "5,500",
     image: "/assets/mindset.png",
   },
   {
     id: 3,
     title: "Go Pro",
     author: "Eric Worre",
-    price: "17,000",
+    price: "3,500",
     image: "/assets/gopro.png",
   },
   {
     id: 4,
     title: "Atomic Habits",
     author: "James Clear",
-    price: "20,000",
+    price: "6,000",
     image: "/assets/atomichabits.png",
   },
 ];
@@ -91,6 +93,14 @@ export default function BooksOfTheMonth() {
           ))}
         </motion.div>
       </div>
+      <Button variant={"destructive"} asChild className="my-5 block w-24">
+        <Link
+          href="/shop"
+          className="block text-center text-blue-600 text-lg hover:underline"
+        >
+          Order for Books
+        </Link>
+      </Button>
     </section>
   );
 }
