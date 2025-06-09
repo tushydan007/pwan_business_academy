@@ -19,11 +19,18 @@ const Footer = () => {
       </div>
       <div className="py-5 flex-1">
         <h2 className="font-bold mb-5 text-2xl">Programs</h2>
-        <p className="cursor-pointer pb-5">Advanced Management Program</p>
         <p className="cursor-pointer pb-5">
-          Entreprenuership and wealth <br /> retention program
+          Affiliate Mentorship Program (AMP)
         </p>
-        <p className="cursor-pointer pb-5">Certified Associate Investment</p>
+        <p className="cursor-pointer pb-5">
+          Employability and Workplace <br /> Readiness Program (EWRP)
+        </p>
+        <p className="cursor-pointer pb-5">
+          Culture and Accountability <br /> Immersion Program (CAIP)
+        </p>
+        <p className="cursor-pointer pb-5">
+          High Performance Team <br /> Player Program (HTPP)
+        </p>
       </div>
       <div className="py-5 flex-1">
         <h2 className="font-bold mb-5 text-2xl">Contact Us</h2>
