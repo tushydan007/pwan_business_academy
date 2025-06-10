@@ -47,7 +47,7 @@ const Footer = () => {
             <Mail /> info@pwanacademy.com
           </p>
         </div>
-        <div className="py-5 flex-1">
+        <div className="py-5 flex-1 pl-20">
           <h2 className="font-bold mb-5 text-xl">Follow Us</h2>
           <div className="flex gap-x-3">
             <Link href="https://instagram.com">
