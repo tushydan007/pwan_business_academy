@@ -2,6 +2,7 @@
 
 "use client";
 
+import { ForwardLinkButton } from "@/components/shared/ForwardButton";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -93,14 +94,9 @@ export default function BooksOfTheMonth() {
           ))}
         </motion.div>
       </div>
-      <Button variant={"destructive"} asChild className="my-5 block w-24">
-        <Link
-          href="/shop"
-          className="block text-center text-blue-600 text-lg hover:underline"
-        >
-          Order for Books
-        </Link>
-      </Button>
+      <div className="grid place-content-center py-8">
+        <ForwardLinkButton href="/shop">See Our Collections</ForwardLinkButton>
+      </div>
     </section>
   );
 }
