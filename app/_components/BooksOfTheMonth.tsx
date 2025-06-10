@@ -3,11 +3,9 @@
 "use client";
 
 import { ForwardLinkButton } from "@/components/shared/ForwardButton";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 
 type Book = {
   id: number;
