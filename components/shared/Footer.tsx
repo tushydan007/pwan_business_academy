@@ -21,7 +21,8 @@ const Footer = () => {
         <div className="py-5 flex-1">
           <h2 className="font-bold mb-5 text-2xl">Programs</h2>
           <p className="cursor-pointer pb-5">
-            Affiliate Mentorship Program (AMP)
+            Affiliate Mentorship <br />
+            Program (AMP)
           </p>
           <p className="cursor-pointer pb-5">
             Employability and Workplace <br /> Readiness Program (EWRP)
