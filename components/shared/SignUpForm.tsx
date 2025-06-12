@@ -577,7 +577,7 @@ const SignUpForm = () => {
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full mt-4"
+                className="w-full mt-4 hover:bg-red-600 rounded-full transition-colors"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

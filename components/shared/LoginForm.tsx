@@ -114,7 +114,7 @@ const LoginForm = () => {
 
                 <Button
                   type="submit"
-                  className="w-full hover:bg-red-600 transition-colors"
+                  className="w-full hover:bg-red-600 transition-colors rounded-full"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Signing in..." : "Sign In"}
