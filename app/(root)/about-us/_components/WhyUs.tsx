@@ -13,7 +13,7 @@ const WhyUs = () => {
           text="The academy provides training in digital marketing, emotional intelligence, team building, public speaking, cold outreach, and sales closing techniques"
         />
         <WhyUsCard
-          icon="/assets/checkmark.png"
+          icon="/assets/checkMark.png"
           text="It helps individuals develop personal and professional abilities to become better business owners PWAN Business Academy is a premier institution."
           bgColor="bg-red-700"
           textColor="text-white"

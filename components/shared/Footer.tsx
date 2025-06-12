@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="text-xs">2025 All Rights Reserved</p>
+      <p className="text-sm text-center">&copy; 2025 All Rights Reserved | All rights reserved</p>
     </div>
   );
 };
