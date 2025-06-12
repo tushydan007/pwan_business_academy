@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import heroImg from "@/public/assets/heroImg.jpg";
 import { motion } from "framer-motion";
 
 const textVariants = {
