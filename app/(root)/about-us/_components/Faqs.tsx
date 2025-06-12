@@ -67,7 +67,7 @@ export default function FaqSection() {
   const secondColumn = faqs.slice(midIndex);
 
   return (
-    <section className="w-full px-4 py-10 md:px-8 lg:px-16 max-w-6xl mx-auto">
+    <section className="w-full px-6 py-10 max-w-6xl mx-auto">
       <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
         Frequently Asked Questions
       </h2>

@@ -4,8 +4,8 @@ import abt from "@/public/assets/abt.png";
 
 const Overview = () => {
   return (
-    <section>
-      <div className="flex flex-col md:flex-row p-10 justify-center">
+    <section className="py-24 px-10">
+      <div className="flex flex-col md:flex-row justify-center">
         <div className="flex-1 mx-auto flex justify-center relative">
           <Image
             src={abt}
