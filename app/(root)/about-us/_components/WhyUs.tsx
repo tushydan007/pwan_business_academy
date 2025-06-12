@@ -15,7 +15,7 @@ const WhyUs = () => {
         <WhyUsCard
           icon="/assets/checkMark.png"
           text="It helps individuals develop personal and professional abilities to become better business owners PWAN Business Academy is a premier institution."
-          bgColor="bg-red-700"
+          bgColor="bg-[#AD1419]"
           textColor="text-white"
         />
         <WhyUsCard
