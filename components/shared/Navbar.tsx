@@ -134,7 +134,7 @@ const Navbar = () => {
 
           {/* Toggler & Login */}
           <div className="hidden md:flex space-x-6 text-lg">
-            <Button asChild className="bg-red-700 hover:bg-red-800">
+            <Button asChild className="bg-red-600 hover:bg-red-800">
               <Link
                 href="/sign-up"
                 className={`transition duration-300 font-semibold ${
@@ -146,7 +146,7 @@ const Navbar = () => {
             </Button>
             <Button
               asChild
-              className="hover:bg-blue-500 bg-transparent hover:text-white hover:border-none"
+              className="hover:bg-red-600 bg-transparent hover:text-white hover:border-none"
               variant="outline"
             >
               <Link

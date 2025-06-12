@@ -7,7 +7,7 @@ import BooksOfTheMonth from "../_components/BooksOfTheMonth";
 export default function Home() {
   return (
     <div>
-      <Hero />
+      <Hero image="/assets/heroImg.jpg" introText="Welcome to" />
       <WhyPwan />
       <RightProgramme />
       <BooksOfTheMonth />

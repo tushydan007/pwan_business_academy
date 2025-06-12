@@ -13,12 +13,17 @@ const textVariants = {
   }),
 };
 
-export default function HeroSection() {
+type HeroProps = {
+  image: string
+  introText: string
+}
+
+export default function HeroSection({image, introText}: HeroProps) {
   return (
     <section className="relative w-full h-screen">
       {/* Background Image */}
       <Image
-        src={heroImg}
+        src={image}
         alt="Hero Background"
         fill
         className="object-cover object-center"
@@ -47,7 +52,7 @@ export default function HeroSection() {
             variants={textVariants}
             custom={0}
           >
-            Welcome to
+            {introText}
           </motion.h1>
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-4"
