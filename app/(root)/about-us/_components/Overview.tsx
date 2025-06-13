@@ -10,8 +10,8 @@ const Overview = () => {
           <Image
             src={abt}
             alt="about PBA"
-            width={500}
-            height={600}
+            width={400}
+            height={300}
             className="rounded-lg shadow-md"
           />
         </div>
@@ -30,6 +30,7 @@ const Overview = () => {
             commodi quis mollitia iste itaque corporis suscipit quas eveniet,
             nulla earum.
           </p>
+          <br />
           <p className="text-sm sm:text-base md:text-lg">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam,
             maxime? Magnam, earum commodi! Optio qui officia quisquam,
