@@ -79,7 +79,7 @@ const LoginForm = () => {
                     id="email"
                     type="email"
                     {...register("email")}
-                    className="border border-gray-300 shadow-md"
+                    className="border border-gray-300 shadow-md rounded-full"
                   />
                   {errors.email && (
                     <p className="text-sm text-red-600 mt-1">
@@ -95,7 +95,7 @@ const LoginForm = () => {
                     id="password"
                     type={showPassword ? "text" : "password"}
                     {...register("password")}
-                    className="border border-gray-300 shadow-md"
+                    className="border border-gray-300 shadow-md rounded-full"
                   />
                   <button
                     type="button"

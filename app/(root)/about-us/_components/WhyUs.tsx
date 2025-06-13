@@ -3,7 +3,7 @@ import WhyUsCard from "../WhyUsCard";
 
 const WhyUs = () => {
   return (
-    <section className="mt-12">
+    <section className="md:mt-12 mt-6">
       <h2 className="text-red-600 font-semibold text-2xl lg:text-4xl md:text-3xl md:mb-10 my-4 text-center">
         Why Us
       </h2>
