@@ -36,10 +36,6 @@ const Navbar = () => {
     {
       label: "About",
       href: "/about-us",
-      subItems: [
-        { label: "Our Mission", href: "/about-us#mission" },
-        { label: "Our Team", href: "/about-us#team" },
-      ],
     },
     {
       label: "Programs",
@@ -53,8 +49,8 @@ const Navbar = () => {
       label: "Shop",
       href: "/shop",
       subItems: [
-        { label: "Support", href: "/contact-us#support" },
-        { label: "Locations", href: "/contact-us#locations" },
+        { label: "Books", href: "/contact-us#books" },
+        { label: "food", href: "/contact-us#food" },
       ],
     },
     {
@@ -93,7 +89,7 @@ const Navbar = () => {
                   } hover:text-red-600 transition duration-300 space-x-1`}
                 >
                   <Link href={link.href}>{link.label}</Link>
-                  {["About", "Programs", "Shop"].includes(link.label) &&
+                  {["Programs", "Shop"].includes(link.label) &&
                     (hoveredIndex === index ? (
                       <ChevronUp className="w-4 h-4 transition-transform duration-300" />
                     ) : (
@@ -102,7 +98,7 @@ const Navbar = () => {
                 </div>
                 <AnimatePresence>
                   {hoveredIndex === index &&
-                    !["Home", "Blog"].includes(link.label) && (
+                    !["Home", "Blog", "About"].includes(link.label) && (
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
