@@ -10,7 +10,7 @@ const Overview = () => {
           <Image
             src={abt}
             alt="about PBA"
-            width={400}
+            width={450}
             height={300}
             className="rounded-lg shadow-md"
           />
