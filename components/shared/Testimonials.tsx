@@ -84,6 +84,7 @@ export default function TestimonialsCarousel() {
                   alt={testimonials[current].name}
                   width={200}
                   height={200}
+                  priority
                   className="rounded-full object-cover border-4 border-white shadow-md"
                 />
               </div>
