@@ -7,7 +7,11 @@ import FaqSection from "./_components/Faqs";
 const AboutUs = () => {
   return (
     <div>
-      <HeroSection image="/assets/aboutjpg.png" introText="About" />
+      <HeroSection
+        image="/assets/aboutjpg.png"
+        introText="About"
+        btnText="Take a tour"
+      />
       <Overview />
       <WhyUs />
       <FaqSection />

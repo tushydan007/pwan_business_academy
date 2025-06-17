@@ -13,11 +13,13 @@ const textVariants = {
 };
 
 type HeroProps = {
-  image: string
-  introText: string
-}
+  image: string;
+  introText: string;
+  btnText?: string;
+  motto?: string
+};
 
-export default function HeroSection({image, introText}: HeroProps) {
+export default function HeroSection({ image, introText, btnText, motto }: HeroProps) {
   return (
     <section className="relative w-full h-screen">
       {/* Background Image */}
@@ -65,15 +67,17 @@ export default function HeroSection({image, introText}: HeroProps) {
             variants={textVariants}
             custom={2}
           >
-            <i>...empowering greatness.</i>
+            <i>{motto}</i>
           </motion.p>
-          <motion.button
-            className="px-6 py-3 bg-red-700 hover:bg-red-800 transition rounded-xl text-white font-medium"
-            variants={textVariants}
-            custom={3}
-          >
-            Get Started
-          </motion.button>
+          {btnText && (
+            <motion.button
+              className="px-6 py-3 bg-red-700 hover:bg-red-800 transition rounded-xl text-white font-medium"
+              variants={textVariants}
+              custom={3}
+            >
+              {btnText}
+            </motion.button>
+          )}
         </motion.div>
       </div>
     </section>

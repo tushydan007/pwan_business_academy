@@ -7,7 +7,12 @@ import BooksOfTheMonth from "../_components/BooksOfTheMonth";
 export default function Home() {
   return (
     <div>
-      <Hero image="/assets/heroImg.jpg" introText="Welcome to" />
+      <Hero
+        image="/assets/heroImg.jpg"
+        introText="Welcome to"
+        btnText="Get Started"
+        motto="...empowering greatness."
+      />
       <WhyPwan />
       <RightProgramme />
       <BooksOfTheMonth />
