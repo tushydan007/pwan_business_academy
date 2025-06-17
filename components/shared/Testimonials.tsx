@@ -78,12 +78,12 @@ export default function TestimonialsCarousel() {
           >
             <Card className="relative bg-white pt-16 pb-10 px-6 rounded-2xl shadow-lg text-center">
               {/* Profile Image */}
-              <div className="absolute -top-[100px] md:-top-[130px] left-1/2 transform -translate-x-1/2">
+              <div className="absolute -top-[100px] md:-top-[110px] left-1/2 transform -translate-x-1/2">
                 <Image
                   src={testimonials[current].image}
                   alt={testimonials[current].name}
-                  width={350}
-                  height={350}
+                  width={200}
+                  height={200}
                   className="rounded-full object-cover border-4 border-white shadow-md"
                 />
               </div>
