@@ -79,7 +79,7 @@ export default function TestimonialsCarousel() {
           >
             <Card className="relative bg-white pt-16 pb-10 px-6 rounded-2xl shadow-lg text-center">
               {/* Profile Image */}
-              <div className="absolute -top-[130px] left-1/2 transform -translate-x-1/2">
+              <div className="absolute -top-[100px] md:-top-[130px] left-1/2 transform -translate-x-1/2">
                 <Image
                   src={testimonials[current].image}
                   alt={testimonials[current].name}
@@ -106,14 +106,14 @@ export default function TestimonialsCarousel() {
               </p>
 
               {/* Stars */}
-              <div className="flex justify-center gap-1 mt-6">
+              {/* <div className="flex justify-center gap-1 mt-6">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     className="w-5 h-5 text-yellow-500 fill-yellow-500"
                   />
                 ))}
-              </div>
+              </div> */}
             </Card>
           </motion.div>
         </AnimatePresence>
