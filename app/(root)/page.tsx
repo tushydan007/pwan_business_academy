@@ -3,6 +3,7 @@ import Hero from "../_components/Hero";
 import WhyPwan from "../_components/WhyPwan";
 import RightProgramme from "../_components/RightProgramme";
 import BooksOfTheMonth from "../_components/BooksOfTheMonth";
+import Testimonials from "@/components/shared/Testimonials";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <WhyPwan />
       <RightProgramme />
       <BooksOfTheMonth />
+      <Testimonials />
     </div>
   );
 }

@@ -8,7 +8,7 @@ const carouselImages = [
   { src: "/assets/carousel1.jpg", alt: "Slide 1" },
   { src: "/assets/carousel2.jpg", alt: "Slide 2" },
   { src: "/assets/carousel3.jpg", alt: "Slide 3" },
-  { src: "/assets/carousel4.jpg", alt: "Slide 4" },
+  { src: "/assets/carousel5.jpg", alt: "Slide 4" },
 ];
 
 const CarouselComponent = () => {
@@ -36,7 +36,7 @@ const CarouselComponent = () => {
           <Image
             src={carouselImages[index].src}
             alt={carouselImages[index].alt}
-            layout="fill"
+            fill
             objectFit="cover"
             className="rounded-none"
             priority
