@@ -10,9 +10,9 @@ const Overview = () => {
           <Image
             src={abt}
             alt="about PBA"
-            width={450}
+            width={400}
             height={300}
-            className="rounded-lg shadow-md"
+            className="rounded-lg shadow-md object-cover"
           />
         </div>
         <div className="md:px-10 flex-1">
