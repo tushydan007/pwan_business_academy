@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { ChevronRight } from "lucide-react";
 import { ChevronLeft } from "lucide-react";
+import { ImQuotesLeft } from "react-icons/im";
 
 type Testimonial = {
   id: number;
@@ -78,19 +79,21 @@ export default function TestimonialsCarousel() {
           >
             <Card className="relative bg-white pt-16 pb-10 px-6 rounded-2xl shadow-lg text-center">
               {/* Profile Image */}
-              <div className="absolute -top-[100px] md:-top-[110px] left-1/2 transform -translate-x-1/2">
+              <div className="absolute -top-[100px] md:-top-[90px] left-1/2 transform -translate-x-1/2">
                 <Image
                   src={testimonials[current].image}
                   alt={testimonials[current].name}
-                  width={200}
-                  height={200}
+                  width={150}
+                  height={150}
                   priority
                   className="rounded-full object-cover border-4 border-white shadow-md"
                 />
               </div>
 
               {/* Quote Icon */}
-              <div className="text-4xl mb-3">“</div>
+              <div className="flex items-center justify-center py-3">
+                <ImQuotesLeft />
+              </div>
 
               {/* Name & Role */}
               <h3 className="uppercase font-semibold text-lg">
