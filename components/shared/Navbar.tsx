@@ -179,7 +179,7 @@ const Navbar = () => {
                   {navLinks.map((link) => (
                     <div key={link.label}>
                       <p className="font-semibold text-gray-800 flex items-center">
-                        {link.label}
+                        <Link href={link.href}>{link.label}</Link>
                       </p>
                       <ul className="ml-2 space-y-1">
                         {link.subItems?.map((item) => (
@@ -211,7 +211,7 @@ const Navbar = () => {
                           scrolled ? "text-white" : "text-white"
                         }`}
                       >
-                        Register
+                        Sign Up
                       </Link>
                     </Button>
                   </div>
