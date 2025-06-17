@@ -35,9 +35,9 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 3,
-    name: "Fatima Bello",
+    name: "Nonso Igwe",
     role: "Investor",
-    image: "/assets/testimonial.png",
+    image: "/assets/nonso.jpg",
     feedback:
       "From listing to closing deals, this app has been a game changer. Truly professional design and features.",
   },
