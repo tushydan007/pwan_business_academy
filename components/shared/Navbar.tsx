@@ -179,14 +179,14 @@ const Navbar = () => {
                   <Separator className="border border-gray-200" />
                   {navLinks.map((link) => (
                     <div key={link.label}>
-                      <p className="font-semibold text-gray-800 flex items-center">
-                        <Link
-                          href={link.href}
+                      <Link href={link.href}>
+                        <div
+                          className="font-semibold text-gray-800 flex items-center"
                           onClick={() => setIsSheetOpen(false)}
                         >
                           {link.label}
-                        </Link>
-                      </p>
+                        </div>
+                      </Link>
                       <ul className="ml-2 space-y-1">
                         {link.subItems?.map((item) => (
                           <li key={item.href}>
