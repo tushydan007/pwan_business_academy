@@ -19,6 +19,7 @@ type NavLink = {
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -158,7 +159,7 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           <div className="md:hidden">
-            <Sheet>
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger className="p-2 cursor-pointer">
                 <Menu
                   className={`h-6 w-6 ${
@@ -179,7 +180,12 @@ const Navbar = () => {
                   {navLinks.map((link) => (
                     <div key={link.label}>
                       <p className="font-semibold text-gray-800 flex items-center">
-                        <Link href={link.href}>{link.label}</Link>
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsSheetOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
                       </p>
                       <ul className="ml-2 space-y-1">
                         {link.subItems?.map((item) => (
@@ -187,6 +193,7 @@ const Navbar = () => {
                             <Link
                               href={item.href}
                               className="text-sm text-gray-700 hover:text-blue-600 transition"
+                              onClick={() => setIsSheetOpen(false)}
                             >
                               {item.label}
                             </Link>
