@@ -41,10 +41,9 @@ const RightProgramme = () => {
           Find The Right Programme For You
         </h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 gap-y-12 py-10 place-items-center">
-          {cards.map((card, index) => (
-            <Link href={card.href}>
+          {cards.map((card) => (
+            <Link href={card.href} key={card.imageUrl}>
               <CustomCard
-                key={card.imageUrl}
                 imageUrl={card.imageUrl}
                 title={card.title}
                 description={card.description}
