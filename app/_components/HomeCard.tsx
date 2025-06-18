@@ -10,13 +10,19 @@ interface CustomCardProps {
   imageUrl: string;
   title: string;
   description: string;
+  delay?: number; // optional delay for staggered effect
 }
 
-const CustomCard = ({ imageUrl, title, description }: CustomCardProps) => {
+const CustomCard = ({
+  imageUrl,
+  title,
+  description,
+  delay = 0,
+}: CustomCardProps) => {
   return (
-    <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl rounded-2xl shadow-md hover:shadow-xl transition duration-300 ease-in-out overflow-hidden">
-      {/* Full-width image at the top */}
-      <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80">
+    <Card className="w-full max-w-sm rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transform transition-all duration-300 ease-in-out overflow-hidden cursor-pointer">
+      {/* Image section */}
+      <div className="relative w-full h-48">
         <Image
           src={imageUrl}
           alt={title}
@@ -30,7 +36,7 @@ const CustomCard = ({ imageUrl, title, description }: CustomCardProps) => {
       </div>
 
       <CardContent className="p-4">
-        <CardTitle className="text-lg sm:text-xl md:text-2xl mb-2 text-red-600">
+        <CardTitle className="text-lg sm:text-xl text-red-600 mb-2">
           {title}
         </CardTitle>
         <CardDescription className="text-sm sm:text-base text-gray-600">
