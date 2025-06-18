@@ -207,7 +207,7 @@ const SignUpForm = () => {
                 <Input
                   id="firstName"
                   {...register("firstName")}
-                  className="border border-gray-300 shadow-md rounded-full"
+                  className="border border-gray-300 shadow-md rounded-full bg-[whitesmoke]"
                 />
                 {errors.firstName && (
                   <p className="text-sm text-red-600 mt-1">
@@ -222,7 +222,7 @@ const SignUpForm = () => {
                 <Input
                   id="lastName"
                   {...register("lastName")}
-                  className="border border-gray-300 shadow-md rounded-full"
+                  className="border border-gray-300 shadow-md rounded-full bg-[whitesmoke]"
                 />
                 {errors.lastName && (
                   <p className="text-sm text-red-600 mt-1">
@@ -238,7 +238,7 @@ const SignUpForm = () => {
                   id="email"
                   type="email"
                   {...register("email")}
-                  className="border border-gray-300 shadow-md rounded-full"
+                  className="border border-gray-300 shadow-md rounded-full bg-[whitesmoke]"
                 />
                 {errors.email && (
                   <p className="text-sm text-red-600 mt-1">
@@ -254,7 +254,7 @@ const SignUpForm = () => {
                   id="username"
                   type="text"
                   {...register("userName")}
-                  className="border border-gray-300 shadow-md rounded-full"
+                  className="border border-gray-300 shadow-md rounded-full bg-[whitesmoke]"
                 />
                 {errors.userName && (
                   <p className="text-sm text-red-600 mt-1">
@@ -270,7 +270,7 @@ const SignUpForm = () => {
                   id="password"
                   type="password"
                   {...register("password")}
-                  className="border border-gray-300 shadow-md rounded-full"
+                  className="border border-gray-300 shadow-md rounded-full bg-[whitesmoke]"
                 />
                 {errors.password && (
                   <p className="text-sm text-red-600 mt-1">
@@ -286,7 +286,7 @@ const SignUpForm = () => {
                   id="confirmPassword"
                   type="password"
                   {...register("confirmPassword")}
-                  className="border border-gray-300 shadow-md rounded-full"
+                  className="border border-gray-300 shadow-md rounded-full bg-[whitesmoke]"
                 />
                 {errors.confirmPassword && (
                   <p className="text-sm text-red-600 mt-1">
@@ -302,7 +302,7 @@ const SignUpForm = () => {
                   id="phone"
                   type="text"
                   {...register("phone")}
-                  className="border border-gray-300 shadow-md rounded-full"
+                  className="border border-gray-300 shadow-md rounded-full bg-[whitesmoke]"
                 />
                 {errors.phone && (
                   <p className="text-sm text-red-600 mt-1">
@@ -331,7 +331,7 @@ const SignUpForm = () => {
                           <RadioGroupItem
                             value={gender}
                             id={gender}
-                            className="border border-gray-300 shadow-md"
+                            className="border border-gray-300 shadow-md bg-[whitesmoke]"
                           />
                           <Label htmlFor={gender}>{gender}</Label>
                         </div>
@@ -355,7 +355,7 @@ const SignUpForm = () => {
                       role="combobox"
                       aria-expanded={open}
                       className={cn(
-                        "w-full justify-between flex items-center border px-3 py-2 rounded-full bg-transparent shadow-md border-gray-300",
+                        "w-full justify-between flex items-center border px-3 py-2 rounded-full bg-transparent shadow-md bg-[whitesmoke]",
                         errors.country && "border-red-500"
                       )}
                     >
@@ -436,7 +436,7 @@ const SignUpForm = () => {
                   <Label htmlFor="firstName">State</Label>
                   <SelectTrigger
                     className={cn(
-                      "border border-gray-300 rounded-full shadow-md",
+                      "border border-gray-300 rounded-full shadow-md bg-[whitesmoke]",
                       errors.state && "border-red-500"
                     )}
                   >
@@ -467,7 +467,7 @@ const SignUpForm = () => {
                   <Label htmlFor="firstName">City</Label>
                   <SelectTrigger
                     className={cn(
-                      "border border-gray-300 rounded-full shadow-md",
+                      "border border-gray-300 rounded-full shadow-md bg-[whitesmoke]",
                       errors.city && "border-red-500"
                     )}
                   >
@@ -494,7 +494,7 @@ const SignUpForm = () => {
                 <Textarea
                   id="description"
                   {...register("description")}
-                  className="border border-gray-300 shadow-md mt-1"
+                  className="border border-gray-300 shadow-md mt-1 bg-[whitesmoke] rounded-xl"
                   rows={7}
                 />
                 {errors.description && (

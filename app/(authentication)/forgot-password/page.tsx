@@ -79,7 +79,7 @@ export default function ForgotPasswordForm() {
                       <Input
                         type="email"
                         placeholder="you@example.com"
-                        className="rounded-full shadow-lg"
+                        className="rounded-full shadow-lg bg-[whitesmoke]"
                         {...field}
                       />
                     </FormControl>
