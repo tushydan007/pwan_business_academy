@@ -16,10 +16,15 @@ type HeroProps = {
   image: string;
   introText: string;
   btnText?: string;
-  motto?: string
+  motto?: string;
 };
 
-export default function HeroSection({ image, introText, btnText, motto }: HeroProps) {
+export default function HeroSection({
+  image,
+  introText,
+  btnText,
+  motto,
+}: HeroProps) {
   return (
     <section className="relative w-full h-screen">
       {/* Background Image */}

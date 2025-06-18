@@ -32,30 +32,31 @@ export default function ForgotPasswordForm() {
   });
 
   const onSubmit = async (data: ForgotPasswordFormValues) => {
-    try {
-      const res = await fetch("/api/forgot-password", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+    // try {
+    //   const res = await fetch("/api/forgot-password", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(data),
+    //   });
 
-      if (res.ok) {
-        toast.success("Password reset link sent to your email");
-        form.reset();
-      } else {
-        const error = await res.json();
-        toast.error(error.message || "Something went wrong");
-      }
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        toast.error(err.message);
-      } else {
-        toast.error("An unexpected error occurred");
-      }
-      //   toast.error("Network error", err);
-    }
+    //   if (res.ok) {
+    //     toast.success("Password reset link sent to your email");
+    //     form.reset();
+    //   } else {
+    //     const error = await res.json();
+    //     toast.error(error.message || "Something went wrong");
+    //   }
+    // } catch (err: unknown) {
+    //   if (err instanceof Error) {
+    //     toast.error(err.message);
+    //   } else {
+    //     toast.error("An unexpected error occurred");
+    //   }
+    //   //   toast.error("Network error", err);
+    // }
+    console.log(data)
   };
 
   return (
@@ -78,6 +79,7 @@ export default function ForgotPasswordForm() {
                       <Input
                         type="email"
                         placeholder="you@example.com"
+                        className="rounded-full shadow-lg"
                         {...field}
                       />
                     </FormControl>
@@ -86,7 +88,7 @@ export default function ForgotPasswordForm() {
                 )}
               />
 
-              <Button type="submit" className="w-full hover:bg-red-600">
+              <Button type="submit" className="w-full hover:bg-red-600 rounded-full">
                 Send Reset Link
               </Button>
             </form>

@@ -77,7 +77,7 @@ export default function TestimonialsCarousel() {
             exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
-            <Card className="relative bg-white pt-16 pb-10 px-6 rounded-2xl shadow-lg text-center">
+            <Card className="relative pt-16 pb-10 px-6 rounded-2xl shadow-xl text-center">
               {/* Profile Image */}
               <div className="absolute -top-[100px] md:-top-[90px] left-1/2 transform -translate-x-1/2">
                 <Image
@@ -125,17 +125,17 @@ export default function TestimonialsCarousel() {
         <div className="flex justify-between items-center mt-6">
           <button
             onClick={handlePrev}
-            className="p-2 rounded-full hover:bg-gray-200 transition"
+            className="p-2 rounded-full hover:bg-gray-300 transition"
             aria-label="Previous"
           >
-            <ChevronLeft />
+            <ChevronLeft color="gray" />
           </button>
           <button
             onClick={handleNext}
-            className="p-2 rounded-full hover:bg-gray-200 transition"
+            className="p-2 rounded-full hover:bg-gray-300 transition"
             aria-label="Next"
           >
-            <ChevronRight />
+            <ChevronRight color="gray" />
           </button>
         </div>
 

@@ -150,15 +150,15 @@ const SignUpForm = () => {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => null);
-        const errorMessage =
-          errorData?.message || `Signup failed with status ${response.status}`;
-        throw new Error(errorMessage);
-      }
+      // if (!response.ok) {
+      //   const errorData = await response.json().catch(() => null);
+      //   const errorMessage =
+      //     errorData?.message || `Signup failed with status ${response.status}`;
+      //   throw new Error(errorMessage);
+      // }
 
       toast.success("Account created successfully!", { id: toastId });
-      reset(); // reset is from useForm()
+      reset();
       // Optionally redirect or do something else here
     } catch (error) {
       const errorMessage =
@@ -324,7 +324,7 @@ const SignUpForm = () => {
                       onValueChange={field.onChange}
                       className="flex gap-4 mt-1"
                     >
-                      {["Male", "Female", "Other"].map((gender) => (
+                      {["Male", "Female"].map((gender) => (
                         <div
                           key={gender}
                           className="flex items-center space-x-2"
@@ -482,78 +482,6 @@ const SignUpForm = () => {
                 {errors.city && (
                   <p className="text-sm text-red-600 mt-1">
                     {errors.city.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Interests - Checkboxes */}
-              <div>
-                <Label>Interests</Label>
-                <div className="grid grid-cols-2 gap-2 mt-2">
-                  {[
-                    "Real Estate",
-                    "Investment",
-                    "Property Management",
-                    "Buying",
-                    "Selling",
-                  ].map((interest) => (
-                    <div key={interest} className="flex items-center space-x-2">
-                      <Controller
-                        control={control}
-                        name="interests"
-                        render={({ field }) => (
-                          <Checkbox
-                            checked={field.value?.includes(interest)}
-                            onCheckedChange={(checked) => {
-                              const newValues = checked
-                                ? [...field.value, interest]
-                                : field.value.filter((i) => i !== interest);
-                              field.onChange(newValues);
-                            }}
-                            id={interest}
-                            className="border border-gray-300 shadow-sm"
-                          />
-                        )}
-                      />
-                      <Label htmlFor={interest}>{interest}</Label>
-                    </div>
-                  ))}
-                </div>
-                {errors.interests && (
-                  <p className="text-sm text-red-600 mt-1">
-                    {errors.interests.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Account Type */}
-              <div>
-                <Label>Account Type</Label>
-                <Controller
-                  control={control}
-                  name="accountType"
-                  render={({ field }) => (
-                    <RadioGroup
-                      value={field.value}
-                      onValueChange={field.onChange}
-                      className="flex gap-4 mt-1"
-                    >
-                      {["Individual", "Business"].map((type) => (
-                        <div key={type} className="flex items-center space-x-2">
-                          <RadioGroupItem
-                            value={type}
-                            id={type}
-                            className="border border-gray-300 shadow-md"
-                          />
-                          <Label htmlFor={type}>{type}</Label>
-                        </div>
-                      ))}
-                    </RadioGroup>
-                  )}
-                />
-                {errors.accountType && (
-                  <p className="text-sm text-red-600 mt-1">
-                    {errors.accountType.message}
                   </p>
                 )}
               </div>
