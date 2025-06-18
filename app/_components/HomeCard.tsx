@@ -10,7 +10,6 @@ interface CustomCardProps {
   imageUrl: string;
   title: string;
   description: string;
-  delay?: number; // optional delay for staggered effect
 }
 
 const CustomCard = ({ imageUrl, title, description }: CustomCardProps) => {
