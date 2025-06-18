@@ -349,6 +349,7 @@ const SignUpForm = () => {
               {/* Country Autocomplete Select */}
               <div>
                 <Popover open={open} onOpenChange={setOpen}>
+                  <Label htmlFor="firstName">Country</Label>
                   <PopoverTrigger asChild>
                     <button
                       role="combobox"
@@ -432,6 +433,7 @@ const SignUpForm = () => {
                   }
                   value={watch("state")}
                 >
+                  <Label htmlFor="firstName">State</Label>
                   <SelectTrigger
                     className={cn(
                       "border border-gray-300 rounded-full shadow-md",
@@ -462,6 +464,7 @@ const SignUpForm = () => {
                   }
                   value={watch("city")}
                 >
+                  <Label htmlFor="firstName">City</Label>
                   <SelectTrigger
                     className={cn(
                       "border border-gray-300 rounded-full shadow-md",
