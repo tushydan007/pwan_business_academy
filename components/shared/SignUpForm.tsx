@@ -36,7 +36,6 @@ import { Button } from "@/components/ui/button";
 import signupImg from "@/public/assets/loginImg.jpg";
 import logo from "@/public/assets/pbaLogo.png";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import toast from "react-hot-toast";
 import SpinnerIcon from "@/components/shared/SpinnerIcon";
@@ -150,12 +149,12 @@ const SignUpForm = () => {
         body: JSON.stringify(data),
       });
 
-      // if (!response.ok) {
-      //   const errorData = await response.json().catch(() => null);
-      //   const errorMessage =
-      //     errorData?.message || `Signup failed with status ${response.status}`;
-      //   throw new Error(errorMessage);
-      // }
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        const errorMessage =
+          errorData?.message || `Signup failed with status ${response.status}`;
+        throw new Error(errorMessage);
+      }
 
       toast.success("Account created successfully!", { id: toastId });
       reset();
