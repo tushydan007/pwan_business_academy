@@ -13,12 +13,7 @@ interface CustomCardProps {
   delay?: number; // optional delay for staggered effect
 }
 
-const CustomCard = ({
-  imageUrl,
-  title,
-  description,
-  delay = 0,
-}: CustomCardProps) => {
+const CustomCard = ({ imageUrl, title, description }: CustomCardProps) => {
   return (
     <Card className="w-full max-w-sm rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transform transition-all duration-300 ease-in-out overflow-hidden cursor-pointer">
       {/* Image section */}

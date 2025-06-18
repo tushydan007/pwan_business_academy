@@ -2,7 +2,7 @@ import React from "react";
 
 const WhyPwan = () => {
   return (
-    <section className="py-10 px-6 md:px-8">
+    <section className="pt-10 pb-20 px-6 md:px-8 bg-[#F3F4F6]">
       <h4 className="font-bold lg:text-4xl md:text-3xl text-2xl text-red-600">
         Why PWAN Business Academy?
       </h4>
