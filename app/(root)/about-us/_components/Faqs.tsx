@@ -39,8 +39,9 @@ const faqs = [
       "Yes, as long as your order hasn't shipped yet. Contact us as soon as possible.",
   },
   {
-    question: "Do you offer gift cards?",
-    answer: "Yes, we offer digital gift cards in various denominations.",
+    question: "Who Is PWAN Business Academy For?",
+    answer:
+      "1. Aspiring Entrepreneurs looking to start or scale a business and students & Graduates who want practical business skills employers value.",
   },
   {
     question: "Is PWAN Business Academy accredited?",

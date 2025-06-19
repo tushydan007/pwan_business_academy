@@ -10,7 +10,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div className="bg-red-700 h-full w-full p-5 text-white px-6 md:px-20">
-      <div className="flex flex-col md:flex-row justify-between">
+      <div className="flex flex-col md:flex-row justify-between md:space-x-12">
         <div className="py-5 flex-1">
           <h2 className="font-bold mb-5 text-2xl">Quick Links</h2>
           <p className="cursor-pointer">Home</p>
@@ -47,9 +47,9 @@ const Footer = () => {
             <Mail /> info@pwanacademy.com
           </p>
         </div>
-        <div className="py-5 flex-1 pl-20">
-          <h2 className="font-bold mb-5 text-xl">Follow Us</h2>
-          <div className="flex gap-x-3">
+        <div className="py-5 flex-1">
+          <h2 className="font-bold mb-5 text-xl text-center">Follow Us</h2>
+          <div className="flex gap-x-3 justify-center">
             <Link href="https://instagram.com">
               <Image
                 src={instagram}

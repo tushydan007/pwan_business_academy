@@ -40,7 +40,7 @@ const testimonials: Testimonial[] = [
     role: "Investor",
     image: "/assets/nonso.jpg",
     feedback:
-      "From listing to closing deals, this app has been a game changer. Truly professional design and features.",
+      "PWAN Business Academy opened my eyes to the power of digital tools. I started my online business two weeks after the course!",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function TestimonialsCarousel() {
     <section className="py-16 px-8 bg-transparent">
       <div className="text-center mb-20">
         <h2 className="text-3xl font-bold mb-36">
-          Genuine feedback from our learners
+          What Our Students Are Saying
         </h2>
       </div>
 

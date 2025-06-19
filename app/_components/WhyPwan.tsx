@@ -13,10 +13,11 @@ const WhyPwan = () => {
         approach empowers leaders with strategic thinking, innovation, and
         leadership skills tailored to today&apos;s dynamic global marketplace.At
         PWAN Business Academy, we&apos;re more than just an institution,
-        we&apos;re a launchpad for your business and entrepreneurial success.
-        Our mission is to empower aspiring business owners, young professionals,
-        and ambitious students with practical knowledge, digital tools, and the
-        mindset needed to thrive in today&apos;s fast-paced economy.
+        we&apos;re a <i>launchpad</i> for your business and entrepreneurial
+        success. Our mission is to empower aspiring business owners, young
+        professionals, and ambitious students with practical knowledge, digital
+        tools, and the mindset needed to thrive in today&apos;s fast-paced
+        economy.
       </p>
     </section>
   );
