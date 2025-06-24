@@ -22,10 +22,10 @@ const Overview = () => {
           <p className="text-sm sm:text-base md:text-lg">
             PWAN Business Academy is a forward-thinking educational hub
             dedicated to empowering individuals with the skills, mindset, and
-            mentorship needed to succeed in today's business and professional
-            world. As part of the broader PWAN initiative, our mission is to
-            bridge the gap between academic knowledge and practical, real-world
-            experience.
+            mentorship needed to succeed in today&apos;s business and
+            professional world. As part of the broader PWAN initiative, our
+            mission is to bridge the gap between academic knowledge and
+            practical, real-world experience.
           </p>
           <br />
           <p className="text-sm sm:text-base md:text-lg">
