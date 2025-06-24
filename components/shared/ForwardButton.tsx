@@ -20,7 +20,7 @@ export function ForwardLinkButton({
     <Link href={href}>
       <Button
         variant="destructive"
-        className={cn("group gap-2 bg-[#AD1419] rounded-full md:text-lg text-base hover:bg-red-600", className)}
+        className={cn("group gap-2 bg-[#AD1419] rounded-full md:text-base text-sm hover:bg-red-600", className)}
       >
         {children}
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
