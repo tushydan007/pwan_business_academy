@@ -75,7 +75,7 @@ export default function BooksOfTheMonth() {
                   <Image
                     src={book.image}
                     alt={book.title}
-                    layout="fill"
+                    fill
                     className="rounded-t-md"
                   />
                 </div>

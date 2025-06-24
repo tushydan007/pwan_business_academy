@@ -1,12 +1,11 @@
 # syntax=docker/dockerfile:1
 
-
 ARG NODE_VERSION=22.15.1
 
-FROM node:${NODE_VERSION}-alpine
+FROM node:${NODE_VERSION}-bullseye-slim
 
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.npm to speed up subsequent builds.
@@ -18,9 +17,15 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     npm ci --omit=dev
 
 # Run the application as a non-root user.
-USER node
+# USER node
 
 # Copy the rest of the source files into the image.
+COPY package.json /app/
+
+COPY package*.json /app/
+
+RUN npm install
+
 COPY . .
 
 # Expose the port that the application listens on.

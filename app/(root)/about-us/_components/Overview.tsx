@@ -4,7 +4,7 @@ import abt from "@/public/assets/abt.png";
 
 const Overview = () => {
   return (
-    <section className="py-24 px-10">
+    <section className="py-20 px-10">
       <div className="flex flex-col md:flex-row justify-center">
         <div className="flex-1 mx-auto flex justify-center relative">
           <Image
@@ -35,7 +35,7 @@ const Overview = () => {
             generation of high-performing individuals who are not just
             competent, but confident, proactive, and purpose-driven. At PWAN
             Business Academy, we believe that everyone has the potential to
-            grow, lead, and win — with the right guidance. That&apos;s why
+            grow, lead, and win with the right guidance. That&apos;s why
             we&apos;re committed to not just teaching, but transforming lives.
             Let us help you unlock your full potential.
           </p>
