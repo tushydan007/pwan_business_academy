@@ -3,6 +3,7 @@ import React from "react";
 import Overview from "./_components/Overview";
 import WhyUs from "./_components/WhyUs";
 import FaqSection from "./_components/Faqs";
+// import MisionAndVisionSection from "./_components/MisionAndVisionSection";
 
 const AboutUs = () => {
   return (
@@ -14,6 +15,7 @@ const AboutUs = () => {
       />
       <Overview />
       <WhyUs />
+      {/* <MisionAndVisionSection /> */}
       <FaqSection />
     </div>
   );

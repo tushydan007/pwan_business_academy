@@ -20,27 +20,24 @@ const Overview = () => {
             Overview
           </h2>
           <p className="text-sm sm:text-base md:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam esse
-            repellendus qui perferendis ipsum rem deserunt perspiciatis, animi
-            cupiditate quos quas sunt, ducimus nesciunt magnam consequuntur
-            laudantium. Impedit voluptas consectetur nesciunt hic nulla corrupti
-            provident, deserunt magnam aperiam tenetur non quibusdam tempora
-            blanditiis quis praesentium id. Rerum officiis quibusdam blanditiis
-            placeat rem eaque omnis aperiam odio repellendus? Officiis possimus
-            commodi quis mollitia iste itaque corporis suscipit quas eveniet,
-            nulla earum.
+            PWAN Business Academy is a forward-thinking educational hub
+            dedicated to empowering individuals with the skills, mindset, and
+            mentorship needed to succeed in today's business and professional
+            world. As part of the broader PWAN initiative, our mission is to
+            bridge the gap between academic knowledge and practical, real-world
+            experience.
           </p>
           <br />
           <p className="text-sm sm:text-base md:text-lg">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam,
-            maxime? Magnam, earum commodi! Optio qui officia quisquam,
-            repudiandae saepe inventore autem deserunt commodi excepturi cumque
-            eligendi dignissimos adipisci quibusdam amet ipsa quas facilis
-            ipsam. Rerum, ratione sint ad dolore quo assumenda dolorem maiores
-            minima porro impedit soluta repellendus in optio quibusdam officiis
-            voluptatum odio recusandae sequi accusantium necessitatibus. Labore
-            quas perferendis praesentium in totam vero autem, consectetur a eos
-            asperiores!
+            We specialize in delivering hands-on, transformational training
+            programs that focus on personal development, career readiness,
+            business growth, and leadership mastery. Our goal is to raise a new
+            generation of high-performing individuals who are not just
+            competent, but confident, proactive, and purpose-driven. At PWAN
+            Business Academy, we believe that everyone has the potential to
+            grow, lead, and win — with the right guidance. That&apos;s why
+            we&apos;re committed to not just teaching, but transforming lives.
+            Let us help you unlock your full potential.
           </p>
         </div>
       </div>
