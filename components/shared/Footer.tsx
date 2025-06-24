@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-red-700 h-full w-full p-5 text-white px-6 md:px-20">
+    <div className="bg-[#AD1419] h-full w-full p-5 text-white px-6 md:px-20">
       <div className="flex flex-col md:flex-row justify-between md:space-x-12">
         <div className="py-5 flex-1">
           <h2 className="font-bold mb-5 text-2xl">Quick Links</h2>

@@ -49,7 +49,7 @@ const books: Book[] = [
 export default function BooksOfTheMonth() {
   return (
     <section className="py-10 px-6 bg-gray-100">
-      <h2 className="md:text-3xl text-2xl text-red-600 font-bold mb-6 text-center">
+      <h2 className="md:text-3xl text-2xl text-[#AD1419] font-bold mb-6 text-center">
         📚 Books of the Month
       </h2>
 

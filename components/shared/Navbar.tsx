@@ -133,7 +133,7 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-6 text-lg">
             <Button
               asChild
-              className="bg-red-600 hover:bg-red-800 rounded-full"
+              className="bg-[#AD1419] hover:bg-red-600 rounded-full"
             >
               <Link
                 href="/sign-up"

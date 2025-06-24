@@ -30,7 +30,7 @@ const CustomCard = ({ imageUrl, title, description }: CustomCardProps) => {
       </div>
 
       <CardContent className="p-4">
-        <CardTitle className="text-lg sm:text-xl text-red-600 mb-2">
+        <CardTitle className="text-lg sm:text-xl text-[#AD1419] mb-2">
           {title}
         </CardTitle>
         <CardDescription className="text-sm sm:text-base text-gray-600">

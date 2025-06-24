@@ -4,7 +4,7 @@ import WhyUsCard from "../WhyUsCard";
 const WhyUs = () => {
   return (
     <section className="md:mt-12 mt-6">
-      <h2 className="text-red-600 font-semibold text-2xl lg:text-4xl md:text-3xl md:mb-10 my-4 text-center">
+      <h2 className="text-[#AD1419] font-semibold text-2xl lg:text-4xl md:text-3xl md:mb-10 my-4 text-center">
         Why Us
       </h2>
       <div className="flex flex-col md:flex-row gap-10 py-14 items-center justify-center space-y-10 md:space-y-0 px-10">

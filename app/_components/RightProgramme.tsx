@@ -26,7 +26,7 @@ const cards = [
   },
   {
     description:
-      "Our High Performance Team Player Program focuses on developing collaborative skills, emotional intelligence, and a results-driven mindset to thrive in dynamic team environments. It empowers individuals to communicate effectively, resolve conflicts, and contribute meaningfully to team goals while embracing shared accountability and continuous improvement.",
+      "Today’s economy is powered by teams that collaborate, innovate, and deliver. This program transforms you into a high-impact contributor by refining your emotional intelligence, teamwork ability, communication skills, and leadership potential.",
     imageUrl: "/assets/http.png",
     title: "High Performance Team Player Program (HTPP)",
     href: "/programs",
@@ -37,7 +37,7 @@ const RightProgramme = () => {
   return (
     <section className="py-2 px-6 md:px-8 mt-14">
       <div>
-        <h4 className="text-center font-bold lg:text-4xl md:text-3xl text-2xl text-red-600 mb-12">
+        <h4 className="text-center font-bold lg:text-4xl md:text-3xl text-2xl text-[#AD1419] mb-12">
           Find The Right Programme For You
         </h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 gap-y-12 py-10 place-items-center">

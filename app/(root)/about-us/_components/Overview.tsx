@@ -16,7 +16,7 @@ const Overview = () => {
           />
         </div>
         <div className="md:px-10 flex-1">
-          <h2 className="text-red-600 font-semibold text-2xl lg:text-4xl md:text-3xl md:mb-10 my-4">
+          <h2 className="text-[#AD1419] font-semibold text-2xl lg:text-4xl md:text-3xl md:mb-10 my-4">
             Overview
           </h2>
           <p className="text-sm sm:text-base md:text-lg">
