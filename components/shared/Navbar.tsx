@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
 
 type NavLink = {
   label: string;
@@ -28,6 +29,8 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
   }, []);
+
+  const pathname = usePathname();
 
   const navLinks: NavLink[] = [
     {
@@ -89,7 +92,15 @@ const Navbar = () => {
                     scrolled ? "text-gray-800" : "text-white"
                   } hover:text-red-600 transition duration-300 space-x-1`}
                 >
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link
+                    href={link.href}
+                    className={`relative transition duration-300 ${
+                      pathname === link.href ? "border-b-2 border-red-600" : ""
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+
                   {["Programs", "Shop"].includes(link.label) &&
                     (hoveredIndex === index ? (
                       <ChevronUp className="w-4 h-4 transition-transform duration-300" />
